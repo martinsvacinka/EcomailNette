@@ -1,0 +1,20 @@
+{
+	"name": "haltuf/ecomail-nette",
+	"type": "library",
+	"keywords": ["ecomail","api","nette"],
+	"description": "Independent Ecomail API wrapper for Nette",
+	"license": "New BSD",
+	"authors": [
+		{
+			"name": "Michal Haltuf",
+			"homepage": "http://www.michalhaltuf.cz"
+		}
+	],
+	"require": {
+		"php": ">=5.3.1",
+		"nette/nette": "~2.3"
+	},
+	"autoload": {
+		"classmap": ["src/"]
+	}
+}

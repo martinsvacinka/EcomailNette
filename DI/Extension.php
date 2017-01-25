@@ -3,8 +3,6 @@
 namespace Ecomail;
 
 use Nette\DI\CompilerExtension;
-use Nette\PhpGenerator;
-use Nette\Reflection\ClassType;
 
 
 class Extension extends CompilerExtension
