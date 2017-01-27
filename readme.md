@@ -58,12 +58,12 @@ A následně můžete používat:
 	$this->ecomail->getSubscribers(1, $page);
 
 	// získá konkrétního odběratele ze seznamu kontaktů ID 1
-	$this->ecomail->getSubscriber(1, 'haltuf@imagineo.cz');
+	$this->ecomail->getSubscriber(1, 'example@example.com');
 
 	// vytvoří nového odběratele, pokud existuje, tak ho upraví
 	// pro seznam všech možných hodnot se podívejte na kód funkce
-	$this->ecomail->addSubscriber(1, array('email' => 'haltuf@imagineo.cz', FALSE, TRUE, TRUE));
+	$this->ecomail->addSubscriber(1, array('email' => 'example@example.com', FALSE, TRUE, TRUE));
 
 	// smazání odběratele
-	$this->ecomail->deleteSubscriber(1, 'haltuf@imagineo.cz');
+	$this->ecomail->deleteSubscriber(1, 'example@example.com');
 ```
