@@ -1,17 +1,16 @@
 {
-	"name": "martinsvacinka/ecomail-nette",
+	"name": "haltuf/ecomail-nette",
 	"type": "library",
 	"keywords": ["ecomail","api","nette"],
 	"description": "Independent Ecomail API wrapper for Nette",
 	"license": "New BSD",
 	"authors": [
 		{
-			"name": "Martin Svacinka",
-			"homepage": "http://www.svacinka.cz"
-		},
-		{
 			"name": "Michal Haltuf",
 			"homepage": "http://www.michalhaltuf.cz"
+		},
+		{
+			"name": "Martin Svacinka"
 		}
 	],
 	"require": {
