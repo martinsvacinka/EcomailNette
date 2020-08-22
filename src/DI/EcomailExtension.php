@@ -1,9 +1,11 @@
 <?php declare(strict_types = 1);
 
-namespace Ecomail\DI;
+namespace Martinsvacinka\Ecomail\DI;
 
 use Nette\DI\CompilerExtension;
 use Ecomail\Ecomail;
+use Nette\Schema\Expect;
+use Nette\Schema\Schema;
 
 class EcomailExtension extends CompilerExtension
 {
