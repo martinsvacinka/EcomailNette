@@ -1,9 +1,9 @@
 <?php declare(strict_types = 1);
 
-namespace Martinsvacinka\Ecomail\DI;
+namespace Martinsvacinka\EcomailNette\DI;
 
 use Nette\DI\CompilerExtension;
-use Ecomail\Ecomail;
+use Martinsvacinka\EcomailNette\Ecomail;
 use Nette\Schema\Expect;
 use Nette\Schema\Schema;
 

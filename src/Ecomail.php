@@ -1,6 +1,6 @@
 <?php
 
-namespace Martinsvacinka\Ecomail;
+namespace Martinsvacinka\EcomailNette;
 
 class Ecomail
 {
