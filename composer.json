@@ -1,5 +1,5 @@
 {
-	"name": "haltuf/ecomail-nette",
+	"name": "martinsvacinka/ecomail-nette",
 	"type": "library",
 	"keywords": ["ecomail","api","nette"],
 	"description": "Independent Ecomail API wrapper for Nette",
