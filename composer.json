@@ -21,7 +21,7 @@
 	  },
 	"autoload": {
 		"psr-4": {
-			"Martinsvacinka\\Ecomail-nettes\\": "src"
+			"Martinsvacinka\\Ecomail-nette\\": "src"
 		}
 	}
 }
