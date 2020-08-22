@@ -3,7 +3,7 @@
 	"type": "library",
 	"keywords": ["ecomail","api","nette"],
 	"description": "Independent Ecomail API wrapper for Nette",
-	"license": "New BSD",
+	"license": "CDDL-1.0",
 	"authors": [
 		{
 			"name": "Michal Haltuf",
