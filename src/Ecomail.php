@@ -1,4 +1,8 @@
-<?php
+<?php declare(strict_types = 1);
+
+/**
+ * API DOCS https://ecomailczv2.docs.apiary.io/
+ */
 
 namespace Martinsvacinka\EcomailNette;
 
@@ -133,5 +137,126 @@ class Ecomail
 		));
 		
 		return $this->sendRequest($url, 'PUT', $post);
+	}
+
+	/**
+	 * Sends transactiona e-mail with ecomail template
+	 */
+	public function sendTransactionalTemplate(array $data) : ?array
+	{
+		$url = self::URL . 'transactional/send-template';
+
+		$post = [
+			'message' => [
+				'template_id' => $data['template_id'],
+				'subject' => $data['subject'],
+				'from_name' => $data['from_name'],
+				'from_email' => $data['from_email'],
+				'reply_to' => $data['reply_to'],
+				'to' => [
+					'email' => $data['email'],
+					'name' => $data['name'],
+					'cc' => $data['cc'],
+					'bcc' => $data['bcc'],
+				],
+				'attachments' => [],
+				'global_merge_vars' => [],
+				'metadata' => [],
+			]
+		];
+
+		// attachments
+		if (isset($data['message']['attachments']) && is_array($data['message']['attachments'])) {
+			foreach($data['message']['attachments'] as $key => $val) {
+				$post['message']['attachments'][$key]['type'] = $val['type'];
+				$post['message']['attachments'][$key]['type'] = $val['name'];
+				$post['message']['attachments'][$key]['type'] = $val['content'];
+			}			
+		}
+
+		// global merge vars
+		if (isset($data['message']['global_merge_vars']) && is_array($data['message']['global_merge_vars'])) {
+			foreach($data['message']['global_merge_vars'] as $key => $val) {
+				$post['message']['global_merge_vars'][$key]['name'] = $val['name'];
+				$post['message']['global_merge_vars'][$key]['content'] = $val['content'];
+			}			
+		}
+
+		// metadata
+		if (isset($data['message']['metadata']) && is_array($data['message']['metadata'])) {
+			foreach($data['message']['metadata'] as $key => $val) {
+				$post['message']['metadata'][$key][$val['key']] = $val['value'];
+			}			
+		}
+
+		$post = json_encode($post);
+
+		return $this->sendRequest($url, 'POST', $post);
+	}
+
+	/**
+	 * Sends transactiona e-mail with html
+	 */
+	public function sendTransactional(array $data) : ?array
+	{
+		$url = self::URL . 'transactional/send-message';
+
+		$post = [
+			'message' => [
+				'subject' => $data['subject'],
+				'from_name' => $data['from_name'],
+				'from_email' => $data['from_email'],
+				'reply_to' => $data['reply_to'],
+				'text' => $data['text'],
+				'html' => $data['html'],
+				'amp_html' => $data['amp_html'],
+				'to' => [
+					'email' => $data['email'],
+					'name' => $data['name'],
+					'cc' => $data['cc'],
+					'bcc' => $data['bcc'],
+				],
+				'attachments' => [],
+				'global_merge_vars' => [],
+				'metadata' => [],
+				'options' => [],
+			]
+		];
+
+		// attachments
+		if (isset($data['message']['attachments']) && is_array($data['message']['attachments'])) {
+			foreach($data['message']['attachments'] as $key => $val) {
+				$post['message']['attachments'][$key]['type'] = $val['type'];
+				$post['message']['attachments'][$key]['type'] = $val['name'];
+				$post['message']['attachments'][$key]['type'] = $val['content'];
+			}			
+		}
+
+		// global merge vars
+		if (isset($data['message']['global_merge_vars']) && is_array($data['message']['global_merge_vars'])) {
+			foreach($data['message']['global_merge_vars'] as $key => $val) {
+				$post['message']['global_merge_vars'][$key]['name'] = $val['name'];
+				$post['message']['global_merge_vars'][$key]['content'] = $val['content'];
+			}			
+		}
+
+		// metadata
+		if (isset($data['message']['metadata']) && is_array($data['message']['metadata'])) {
+			foreach($data['message']['metadata'] as $key => $val) {
+				$post['message']['metadata'][$key][$val['key']] = $val['value'];
+			}			
+		}
+
+		// options
+		if (isset($data['message']['options']) && is_array($data['message']['options'])) {
+			foreach($data['message']['options'] as $key => $val) {
+				$post['message']['options'][$key]['click_tracking'] = $val['click_tracking'];
+				$post['message']['options'][$key]['open_tracking'] = $val['open_tracking'];
+			}			
+		}
+
+		$post = json_encode($post);
+
+		return $this->sendRequest($url, 'POST', $post);
 	}
 }
