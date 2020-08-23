@@ -142,7 +142,7 @@ class Ecomail
 	/**
 	 * Sends transactiona e-mail with ecomail template
 	 */
-	public function sendTransactionalTemplate(array $data) : ?array
+	public function sendTransactionalTemplate(array $data)
 	{
 		$url = self::URL . 'transactional/send-template';
 
@@ -197,7 +197,7 @@ class Ecomail
 	/**
 	 * Sends transactiona e-mail with html
 	 */
-	public function sendTransactional(array $data) : ?array
+	public function sendTransactional(array $data)
 	{
 		$url = self::URL . 'transactional/send-message';
 
