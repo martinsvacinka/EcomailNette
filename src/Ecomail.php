@@ -148,16 +148,16 @@ class Ecomail
 
 		$post = [
 			'message' => [
-				'template_id' => $data['template_id'],
-				'subject' => $data['subject'],
-				'from_name' => $data['from_name'],
-				'from_email' => $data['from_email'],
-				'reply_to' => $data['reply_to'],
+				'template_id' => $data['message']['template_id'],
+				'subject' => $data['message']['subject'],
+				'from_name' => $data['message']['from_name'],
+				'from_email' => $data['message']['from_email'],
+				'reply_to' => $data['message']['reply_to'],
 				'to' => [
-					'email' => $data['email'],
-					'name' => $data['name'],
-					'cc' => $data['cc'],
-					'bcc' => $data['bcc'],
+					'email' => $data['message']['to']['email'],
+					'name' => $data['message']['to']['name'],
+					'cc' => $data['message']['to']['cc'],
+					'bcc' => $data['message']['to']['bcc'],
 				],
 				'attachments' => [],
 				'global_merge_vars' => [],
