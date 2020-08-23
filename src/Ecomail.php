@@ -153,17 +153,22 @@ class Ecomail
 				'from_name' => $data['message']['from_name'],
 				'from_email' => $data['message']['from_email'],
 				'reply_to' => $data['message']['reply_to'],
-				'to' => [
-					'email' => $data['message']['to']['email'],
-					'name' => $data['message']['to']['name'],
-					'cc' => $data['message']['to']['cc'],
-					'bcc' => $data['message']['to']['bcc'],
-				],
+				'to' => [],
 				'attachments' => [],
 				'global_merge_vars' => [],
 				'metadata' => [],
 			]
 		];
+
+		// to
+		if (isset($data['message']['to']) && is_array($data['message']['to'])) {
+			foreach($data['message']['to'] as $key => $val) {
+				$post['message']['to'][$key]['email'] = $val['email'];
+				$post['message']['to'][$key]['name'] = $val['name'];
+				$post['message']['to'][$key]['cc'] = $val['cc'];
+				$post['message']['to'][$key]['bcc'] = $val['bcc'];
+			}			
+		}
 
 		// attachments
 		if (isset($data['message']['attachments']) && is_array($data['message']['attachments'])) {
@@ -210,18 +215,23 @@ class Ecomail
 				'text' => $data['text'],
 				'html' => $data['html'],
 				'amp_html' => $data['amp_html'],
-				'to' => [
-					'email' => $data['email'],
-					'name' => $data['name'],
-					'cc' => $data['cc'],
-					'bcc' => $data['bcc'],
-				],
+				'to' => [],
 				'attachments' => [],
 				'global_merge_vars' => [],
 				'metadata' => [],
 				'options' => [],
 			]
 		];
+
+		// to
+		if (isset($data['message']['to']) && is_array($data['message']['to'])) {
+			foreach($data['message']['to'] as $key => $val) {
+				$post['message']['to'][$key]['email'] = $val['email'];
+				$post['message']['to'][$key]['name'] = $val['name'];
+				$post['message']['to'][$key]['cc'] = $val['cc'];
+				$post['message']['to'][$key]['bcc'] = $val['bcc'];
+			}			
+		}
 
 		// attachments
 		if (isset($data['message']['attachments']) && is_array($data['message']['attachments'])) {
